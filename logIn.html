@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="logIn.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="image-section">
+            <img src="img/Screenshot 2025-01-15 212824.png" alt="Login">
+        </div>
+        <div class="form-section">
+            <h2>Welcome back!</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="login-email">Email address</label>
+                    <input type="email" id="login-email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password">
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember for 30 days</label>
+                </div>
+                <button type="button" class="form-button" id="login-btn">Login</button>
+            </form>
+            <div class="divider">or</div>
+            <div class="social-buttons">
+                <div class="social-button">
+                    <img src="https://img.icons8.com/color/48/google-logo.png" alt="Google">
+                    <a href="">Sign in with Google</a>
+                </div>
+                <div class="social-button">
+                    <img src="https://img.icons8.com/ios-filled/50/facebook.png" alt="Facebook">
+                    <a href="https://web.facebook.com/?_rdc=1&_rdr#">Sign in with Facebook</a>
+                </div>
+            </div>
+            <div class="text-link">
+                Don’t have an account? <a href="signUp.html">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+        // Import the functions you need from the SDKs you need
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAgyWGXCAIR6NiKfkzkWZbBeOMPRDNwMg4",
+            authDomain: "contactus-a9d19.firebaseapp.com",
+            databaseURL: "https://contactus-a9d19-default-rtdb.firebaseio.com",
+            projectId: "contactus-a9d19",
+            storageBucket: "contactus-a9d19.firebasestorage.app",
+            messagingSenderId: "290565306453",
+            appId: "1:290565306453:web:0995f78c2a17d582903cdc"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        auth.languageCode = 'en';
+        let button = document.getElementById("login-btn");
+
+        button.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // else if (!passwordRegex.test(password)) {
+            //     alert('Password must be at least 8 characters long and include both letters and numbers.');
+            //     return;
+            // }
+            else {
+                signInWithEmailAndPassword(auth, email, password)
+                    .then((userCredential) => {
+                        // Signed in 
+                        const user = userCredential.user;
+                        window.location.href = "index.html";
+                        alert('Welocome to the world of kids');
+
+                        // ...
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                        alert("Info Don't match");
+                    });
+
+
+            }
+        });
+
+    </script>
+</body>
