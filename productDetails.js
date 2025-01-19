@@ -1,5 +1,20 @@
-
+// information detail from product page
+let proDetailsData = JSON.parse(localStorage.getItem("details"));
+console.log(proDetailsData.color)
    
+
+// send information  from productdeatils to  cart page
+// add To Favorites
+// function addtocart(product) {
+//   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+//   favorites.push(product);
+
+//   localStorage.setItem("favorites", JSON.stringify(favorites));
+// }
+
+
+
    // Change the color dynamically on hover(style)
    const logo = document.querySelector('.logo');
    const icon = document.querySelector('.icon');
@@ -62,11 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (snapshot.exists()) {
           const product = snapshot.val();
 
-          document.getElementById('mainImage').src = product.image;
-          document.getElementById('productName').textContent = product.name;
-          document.getElementById('productRating').textContent = `⭐ ${product.rating}`;
-          document.getElementById('productPrice').textContent = product.price;
-          document.getElementById('productDescription').textContent = product.description;
+          document.getElementById('mainImage').src = proDetailsData.image;
+          document.getElementById('productName').textContent = proDetailsData.name;
+          document.getElementById('productRating').textContent = `⭐ ${proDetailsData.rating}`;
+          document.getElementById('productPrice').textContent = proDetailsData.price;
+          document.getElementById('productDescription').textContent = proDetailsData.description;
         } else {
           console.error("Product not found!");
           console.log("Product not found!");
