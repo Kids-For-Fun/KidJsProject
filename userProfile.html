@@ -18,30 +18,24 @@
             <div class="container">
                 <!-- Logo -->
                 <div class="logo">
-                    Kids <span>★</span>
+                    Tiny Joys   <span>★</span>
                     <div class="icon">❤</div>
                 </div>
-    
+
                 <!-- Burger Button -->
-                <button 
-                    class="navbar-toggler" 
-                    type="button" 
-                    data-bs-toggle="collapse" 
-                    data-bs-target="#navbarNav" 
-                    aria-controls="navbarNav" 
-                    aria-expanded="false" 
-                    aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-    
-              <!-- Collapsible Menu -->
+
+                <!-- Collapsible Menu -->
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link text" href="index.html" style="color: #EECAD5;">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="product.html">Categorys</a>
+                            <a class="nav-link text-dark" href="product.html">Categories</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="aboutUs.html">About us</a>
@@ -49,9 +43,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="contactUs.html">Contact </a>
                         </li>
-                    
+
                     </ul>
-    
+
                     <!-- Search Bar and Icons -->
                     <div class="d-flex align-items-center">
                         <!-- Search Bar -->
@@ -62,11 +56,15 @@
                                 <i class="fa fa-search"></i>
                             </button>
                         </div>
-    
+
                         <!-- User Icon -->
-                        <a  style="color: black;" href="userProfile.html">
-                          <i  class="fa-regular fa-user fs-5"></i>
-                      </a>
+                        <a style="color: black;" href="userProfile.html">
+                            <i class="fa-regular fa-user fs-5"></i>
+                        </a>
+                        <span id="nav-username"></span>
+                        <span class="fav-icon">
+                            <a href="wishList.html"><i class="fa-regular fa-heart"></i></a>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -75,7 +73,7 @@
     <!-- ========= hero section=========================================  -->
 
     <div class="heroSection">
-        <img src="c33dc32d-bebe-4f57-84c2-4078cfb23dd1.jpg" alt="">
+        <img src="img/image.png" alt="">
         
       </div>
       
@@ -87,7 +85,7 @@
         <div class="profile-avatar">
             <img src="https://i.pinimg.com/736x/26/cf/47/26cf4792065d7b5da949c48a002d4f49.jpg" alt="Avatar">
         </div>
-        <h1 class="welcome-message">Hello, <span>Ali Mohammad</span></h1>
+        <h1 class="welcome-message">Hello, <span id="showTitel">Ali Mohammad</span></h1>
     </div>
 
     <div class="profile-info">
@@ -115,17 +113,13 @@
     </div>
     
     <div class="edit-forms">
-        <!-- Edit Email -->
-        <div id="edit-box-email" class="edit-box" style="display: none;">
-            <h3>Edit Email</h3>
-            <form>
-                <label>New Email</label>
-                <input id="newEmail" type="email" placeholder="Enter new email" required>
-                <label>Password</label>
-                <input id="oldPassword" type="password" placeholder="Enter your password" required>
-                <button class="edit_Email_btn" type="submit">Edit</button>
+     
+        <div id="edit-box-email" class="edit-box" style="display: none;" disabled>
+     
+            <form id="edit-email-form">
             </form>
         </div>
+    </div>
     
         <!-- Edit Name -->
         <div id="edit-box-name" class="edit-box" style="display: none;">
@@ -138,19 +132,24 @@
         </div>
     
         <!-- Edit Password -->
-        <div id="edit-box-password" class="edit-box" style="display: none;">
-            <h3>Edit Password</h3>
-            <form>
-                <label>Old Password</label>
-                <input id="old_Password" type="password" placeholder="Enter old password" required>
-                <label>New Password</label>
-                <input id="newPassword" type="password" placeholder="Enter new password" required>
-                <label>Confirm Password</label>
-                <input id="newPasswordConfirm" type="password" placeholder="Confirm new password" required>
-                <p id="error-message" style="color: red; display: none;">Passwords do not match!</p>
-                <button class="edit_password_btn" type="submit">Edit</button>
-            </form>
-        </div>
+     <div id="edit-box-password" class="edit-box" style="display: none;">
+  <h3>Edit Password</h3>
+  <form id="edit-password-form">
+    <label>Old Password</label>
+    <input id="old_Password" type="password" placeholder="Enter old password" required>
+    
+    <label>New Password</label>
+    <input id="newPassword" type="password" placeholder="Enter new password" required>
+    
+    <label>Confirm Password</label>
+    <input id="newPasswordConfirm" type="password" placeholder="Confirm new password" required>
+    
+    <p id="error-message" style="color: red; display: none;">Passwords do not match!</p>
+    
+    <button class="edit_password_btn" type="submit">Edit</button>
+  </form>
+
+</div>
     </div>
 
 

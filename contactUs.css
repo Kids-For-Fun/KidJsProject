@@ -134,6 +134,20 @@ header nav ul li a:hover {
     text-transform: uppercase;
 }
 
+.fav-icon i {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 5px;
+    transition: color 0.5s;
+    transition: font-size 0.5s;
+}
+
+.fav-icon i:hover {
+    color: #eecad5;
+    font-size: 30px;
+    cursor: pointer;
+}
+
 .logo span {
     font-size: 2rem;
     color: #FFB6C1;

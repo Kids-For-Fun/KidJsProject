@@ -1,6 +1,6 @@
-:root{
-    --main-color:#EECAD5 ;
-    --text-color:#1D2939 ;
+:root {
+    --main-color: #EECAD5;
+    --text-color: #1D2939;
     --bg--color: #F9FFFF;
 }
 
@@ -8,8 +8,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
+}
+
+.fav-icon i {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 5px;
+    transition: color 0.5s;
+    transition: font-size 0.5s;
+}
+
+.fav-icon i:hover {
+    color: #eecad5;
+    font-size: 30px;
+    cursor: pointer;
+}
+
 /* ==========================nav bar========================================== */
 .logo {
     font-size: 3rem;
@@ -23,7 +37,8 @@
 
 .logo span {
     font-size: 2rem;
-    color: #FFB6C1; /* A complementary pink color */
+    color: #FFB6C1;
+    /* A complementary pink color */
 }
 
 .logo:hover {
@@ -33,15 +48,19 @@
 
 .icon {
     font-size: 1.5rem;
-    color: #FF69B4; /* Another fun color for the icon */
+    color: #FF69B4;
+    /* Another fun color for the icon */
     animation: bounce 1.5s infinite;
 }
 
 /* Add a bouncing animation */
 @keyframes bounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-10px);
     }
@@ -49,25 +68,27 @@
 
 
 
+
 /* hero ================================================== */
 .heroSection img {
     width: 100%;
     height: 35vh;
-  }
-  
-  #btn_nav{
-    height:45px;
+}
+
+#btn_nav {
+    height: 45px;
     background-color: var(--main-color);
-  }
-  #sections {
+}
+
+#sections {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
     background-color: var(--bg--color);
     min-height: 25vh;
-  }
-  
+}
+
 
 
 
@@ -129,7 +150,8 @@ body {
     font-size: 16px;
 }
 
-.info-table th, .info-table td {
+.info-table th,
+.info-table td {
     padding: 10px;
     border: 1px solid #ddd;
 }
@@ -180,14 +202,14 @@ body {
 
 .edit-box button {
     padding: 10px 20px;
-    background-color: var(--main-color); 
-    color: white;   
+    background-color: var(--main-color);
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem; 
+    font-size: 1rem;
     transition: background-color 0.3s;
-    margin-left:45% ;
+    margin-left: 45%;
 }
 
 .edit-box button:hover {
@@ -197,7 +219,7 @@ body {
 
 
 .edit-box button:hover {
-    background-color: #bdbdbd; 
+    background-color: #bdbdbd;
     color: var(--main-color);
 }
 
@@ -208,63 +230,74 @@ body {
 
 /* ============footer================ */
 
-footer{
+footer {
     background-color: var(--main-color);
-  }
+}
 
-  #social_icon {
+#social_icon {
     padding-bottom: 15px;
-  }
+}
 
-  #social_icon li {
+#social_icon li {
     display: inline-block;
     margin: 0 10px;
-  }
+}
 
-  #social_icon i {
+#social_icon i {
     color: var(--text-color);
     transition: color 0.3s ease;
-  }
+}
 
-  #social_icon i:hover {
-    color: #FF69B4; 
-  }
-  footer li{
+#social_icon i:hover {
+    color: #FF69B4;
+}
+
+footer li {
     cursor: pointer;
-  }
+}
 
 
-  @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .edit-forms {
-        flex-direction: column; /* جعل الأعمدة في صف عمودي */
+        flex-direction: column;
+        /* جعل الأعمدة في صف عمودي */
     }
 
     .edit-box {
-        flex: 1 1 100%; /* جعل العناصر تأخذ 100% من العرض */
-        margin-bottom: 10px; /* تقليل المسافة بين المربعات */
+        flex: 1 1 100%;
+        /* جعل العناصر تأخذ 100% من العرض */
+        margin-bottom: 10px;
+        /* تقليل المسافة بين المربعات */
     }
 
     .edit-box button {
-        margin-left: 0; /* إزالة الهامش اليساري */
-        width: 100%; /* جعل الزر يأخذ عرض كامل */
+        margin-left: 0;
+        /* إزالة الهامش اليساري */
+        width: 100%;
+        /* جعل الزر يأخذ عرض كامل */
     }
 }
 
 @media screen and (max-width: 480px) {
     .profile-container {
-        width: 100%; 
+        width: 100%;
     }
 
     .profile-avatar img {
-        width: 80px; /* تقليل حجم الصورة */
-        height: 80px; /* تقليل الحجم ليناسب الشاشة الصغيرة */
+        width: 80px;
+        /* تقليل حجم الصورة */
+        height: 80px;
+        /* تقليل الحجم ليناسب الشاشة الصغيرة */
     }
 
     .welcome-message {
-        font-size: 18px; /* تقليل حجم الخط في الرسالة الترحيبية */
+        font-size: 18px;
+        /* تقليل حجم الخط في الرسالة الترحيبية */
     }
 
-    .info-table th, .info-table td {
-        font-size: 14px; /* تقليل حجم الخط في جدول المعلومات */
+    .info-table th,
+    .info-table td {
+        font-size: 14px;
+        /* تقليل حجم الخط في جدول المعلومات */
     }
 }
