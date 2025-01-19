@@ -19,33 +19,34 @@
     align-items: center;
     gap: 10px;
     text-transform: uppercase;
-}
-
-.logo span {
+  }
+  
+  .logo span {
     font-size: 2rem;
     color: #FFB6C1; /* A complementary pink color */
-}
-
-.logo:hover {
+  }
+  
+  .logo:hover {
     transform: scale(1.1);
     transition: transform 0.1s ease-in-out;
-}
-
-.icon {
+  }
+  
+  .icon {
     font-size: 1.5rem;
     color: #FF69B4; /* Another fun color for the icon */
     animation: bounce 1.5s infinite;
-}
-
-/* Add a bouncing animation */
-@keyframes bounce {
+  }
+  
+  /* Add a bouncing animation */
+  @keyframes bounce {
     0%, 100% {
         transform: translateY(0);
     }
     50% {
         transform: translateY(-10px);
     }
-}
+  }
+  
 
 
 

@@ -13,10 +13,10 @@
   }
   
   /* -----------------------header----------------------- */
-  .logo {
+   .logo {
     font-size: 3rem;
     font-weight: bold;
-    color: #eecad5;
+    color: #EECAD5;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -25,30 +25,30 @@
   
   .logo span {
     font-size: 2rem;
-    color: #ffb6c1; /* A complementary pink color */
+    color: #FFB6C1; /* A complementary pink color */
   }
   
   .logo:hover {
     transform: scale(1.1);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.1s ease-in-out;
   }
   
   .icon {
     font-size: 1.5rem;
-    color: #ff69b4; /* Another fun color for the icon */
+    color: #FF69B4; /* Another fun color for the icon */
     animation: bounce 1.5s infinite;
   }
   
   /* Add a bouncing animation */
   @keyframes bounce {
-    0%,
-    100% {
-      transform: translateY(0);
+    0%, 100% {
+        transform: translateY(0);
     }
     50% {
-      transform: translateY(-10px);
+        transform: translateY(-10px);
     }
   }
+  
   
   /* -----------------------hero section----------------------- */
   

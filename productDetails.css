@@ -43,9 +43,6 @@
     color: #FF69B4; /* Another fun color for the icon */
     animation: bounce 1.5s infinite;
   }
-  .form-control{
-  
-  }
   
   /* Add a bouncing animation */
   @keyframes bounce {
