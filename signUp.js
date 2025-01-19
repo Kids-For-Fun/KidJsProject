@@ -8,6 +8,8 @@ import {
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
+
+
 // Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAgyWGXCAIR6NiKfkzkWZbBeOMPRDNwMg4",
@@ -19,13 +21,15 @@ const firebaseConfig = {
   appId: "1:290565306453:web:0995f78c2a17d582903cdc",
 };
 
-// Initialize Firebase
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+
 const provider = new GoogleAuthProvider();
 auth.languageCode = "en";
+
 
 // Handle regular email/password signup
 let button = document.getElementById("authh");
