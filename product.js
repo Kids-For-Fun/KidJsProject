@@ -73,7 +73,7 @@ getAllData().then((data) => {
                 <span class="text-warning">&#9733;${product.rating}</span>
               </div>
               <div>
-                <button id="detailsButton" class="m-1 btn btn-pink" style="background-color: #f8d7da; color: #000;" data-id="${userId}">More Details</button>
+                <button id="detailsButton" class="m-1 btn btn-pink" style="background-color: #f8d7da; color: #000;" data-id="${userId}"><a style="text-decoration: none; color:black" href="productDetails.html">More Details</a></button>
                 <button id="favoriteButton" class="btn btn-pink" style="background-color: #f8d7da; color: #000;">Add to favorite</button>
               </div>
             </div>
