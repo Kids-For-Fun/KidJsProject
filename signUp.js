@@ -48,6 +48,8 @@ googleButton.addEventListener('click', () => {
 });
 
 
+
+
 button.addEventListener('click', function (event) {
     event.preventDefault();
     const name = document.getElementById('name').value;

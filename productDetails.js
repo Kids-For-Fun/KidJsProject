@@ -2,16 +2,29 @@
 let proDetailsData = JSON.parse(localStorage.getItem("details"));
 console.log(proDetailsData.color)
    
+// =============================================================================================
 
-// send information  from productdeatils to  cart page
-// add To Favorites
-// function addtocart(product) {
-//   let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  function addToCart() {
+    if (proDetailsData) {
+      // استرجاع المنتجات الموجودة في السلة أو إنشاء مصفوفة جديدة
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-//   favorites.push(product);
+      // إضافة المنتج الحالي إلى السلة
+      cart.push(proDetailsData);
 
-//   localStorage.setItem("favorites", JSON.stringify(favorites));
-// }
+      // تحديث localStorage ببيانات السلة الجديدة
+      localStorage.setItem("cart", JSON.stringify(cart));
+
+      // الانتقال إلى صفحة checkout.html
+      window.location.href = "checkOut.html";
+    } else {
+      console.error("No product details found to add to cart.");
+    }
+  }
+
+  // إضافة مستمع للنقر على الزر
+  document.getElementById("addToCart").addEventListener("click", addToCart);
+// =========================================================================================
 
 
 
@@ -66,37 +79,41 @@ const db = getDatabase(app);
 
 
 // add products information ضافة معلومات منتج معين إلى صفحة الويب 
-document.addEventListener('DOMContentLoaded', () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const productId = urlParams.get('id');  
+if (proDetailsData) {
+  // تحديث الصورة الرئيسية
+  document.getElementById("mainImage").src = proDetailsData.image;
 
-  if (productId) {
-    const productRef = ref(db, `products/${productId}`);
-    get(productRef)
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-          const product = snapshot.val();
-
-          document.getElementById('mainImage').src = proDetailsData.image;
-          document.getElementById('productName').textContent = proDetailsData.name;
-          document.getElementById('productRating').textContent = `⭐ ${proDetailsData.rating}`;
-          document.getElementById('productPrice').textContent = proDetailsData.price;
-          document.getElementById('productDescription').textContent = proDetailsData.description;
-        } else {
-          console.error("Product not found!");
-          console.log("Product not found!");
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching product data:", error);
-        console.log("Error fetching product data. Please try again later.");
-      });
-  } else {
-    console.error("No product ID provided in the URL.");
-    console.log("Invalid product ID. Please check the URL.");
+  // تحديث الصور المصغرة
+  const smallImages = document.querySelectorAll("#small_img .thumbnail");
+  if (proDetailsData.thumbnails && proDetailsData.thumbnails.length === smallImages.length) {
+    proDetailsData.thumbnails.forEach((thumbnail, index) => {
+      smallImages[index].src = thumbnail;
+    });
   }
-});
 
+  // تحديث اسم المنتج
+  // document.querySelector(".gift-info h1").textContent = proDetailsData.name;
+
+  // تحديث التقييم
+  const ratingElement = document.querySelector(".rating span:nth-child(1)");
+  ratingElement.textContent = `⭐ ${proDetailsData.rating}`;
+
+  // تحديث عدد المراجعات
+  const reviewsElement = document.querySelector(".rating span:nth-child(2)");
+  reviewsElement.textContent = `${proDetailsData.reviews} reviews`;
+
+  // تحديث عدد المنتجات المباعة
+  const soldElement = document.querySelector(".rating span:nth-child(3)");
+  soldElement.textContent = `${proDetailsData.sold}+ sold`;
+
+  // تحديث السعر
+  document.querySelector(".price").textContent = `$${proDetailsData.price}`;
+
+  // تحديث الوصف
+  document.querySelector(".description").textContent = proDetailsData.description;
+} else {
+  console.error("Product details not found in localStorage.");
+}
 
 
 // Function to write data to Firebase==============================

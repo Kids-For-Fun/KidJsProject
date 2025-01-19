@@ -4,11 +4,11 @@ const logo = document.querySelector('.logo');
 const icon = document.querySelector('.icon');
 
 logo.addEventListener('mouseover', () => {
-    icon.style.color = '#EECAD5';
+  icon.style.color = '#EECAD5';
 });
 
 logo.addEventListener('mouseout', () => {
-    icon.style.color = '#FF69B4';
+  icon.style.color = '#FF69B4';
 });
 
 
@@ -20,13 +20,13 @@ logo.addEventListener('mouseout', () => {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAgyWGXCAIR6NiKfkzkWZbBeOMPRDNwMg4",
-    authDomain: "contactus-a9d19.firebaseapp.com",
-    databaseURL: "https://contactus-a9d19-default-rtdb.firebaseio.com",
-    projectId: "contactus-a9d19",
-    storageBucket: "contactus-a9d19.firebasestorage.app",
-    messagingSenderId: "290565306453",
-    appId: "1:290565306453:web:0995f78c2a17d582903cdc"
+  apiKey: "AIzaSyAgyWGXCAIR6NiKfkzkWZbBeOMPRDNwMg4",
+  authDomain: "contactus-a9d19.firebaseapp.com",
+  databaseURL: "https://contactus-a9d19-default-rtdb.firebaseio.com",
+  projectId: "contactus-a9d19",
+  storageBucket: "contactus-a9d19.firebasestorage.app",
+  messagingSenderId: "290565306453",
+  appId: "1:290565306453:web:0995f78c2a17d582903cdc"
 };
 
 // Initialize Firebase
@@ -40,13 +40,13 @@ const db = getDatabase();
 
 const dbRef = ref(getDatabase());
 get(child(dbRef, `products/`)).then((snapshot) => {
-    let data = snapshot.val();
+  let data = snapshot.val();
 
-    if (snapshot.exists()) {
-        // console.log(data);
-        data.slice(0, 5).map((data) => {
+  if (snapshot.exists()) {
+    // console.log(data);
+    data.slice(0, 5).map((data) => {
 
-            document.getElementById("new-products").innerHTML += `
+      document.getElementById("new-products").innerHTML += `
                            <div id="cardItem" class="card">
       <div class="col">
         <div class="card h-100">
@@ -64,10 +64,10 @@ get(child(dbRef, `products/`)).then((snapshot) => {
       </div>
     </div>`
 
-        });
-        data.slice(5, 9).map((d) => {
+    });
+    data.slice(5, 9).map((d) => {
 
-            document.getElementById("offers-products").innerHTML += `
+      document.getElementById("offers-products").innerHTML += `
                           <div id="cardItem" class="card">
       <div class="col">
         <div class="card h-100">
@@ -79,18 +79,18 @@ get(child(dbRef, `products/`)).then((snapshot) => {
               <span class="fw-bold">$${d.price}</span>
               <span class="text-warning">&#9733;${d.rating}</span>
             </div>
-            <button id="detailsButton" class="btn btn-pink" style="background-color: #f8d7da; color: #000;" onclick="viewProduct(${d.name})">More Details</button>
+            <button id="detailsButton" class="btn btn-pink" style="background-color: #f8d7da; color: #000;">More Details</button>
           </div>
         </div>
       </div>
     </div>`
-        });
-    } else {
-        console.log("No data available");
-    }
+    });
+  } else {
+    console.log("No data available");
+  }
 
 }).catch((error) => {
-    console.error(error);
+  console.error(error);
 });
 
 
