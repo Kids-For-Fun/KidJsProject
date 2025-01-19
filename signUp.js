@@ -30,12 +30,19 @@ auth.languageCode = "en";
 // Handle regular email/password signup
 let button = document.getElementById("authh");
 
+
+
+
+button.addEventListener('click', function (event) {
+    event.preventDefault();
+
 button.addEventListener("click", function (event) {
   event.preventDefault();
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
   const terms = document.getElementById("terms").checked;
+
 
   const nameRegex = /^[A-Za-z\s]{3,30}$/;
   const emailRegex = /^[^\s@]+@[^\s@]+$/;

@@ -21,130 +21,109 @@
 
 
   <!-- navbar====================================== -->
-  <header id="header" class="bg-light shadow-sm">
+  <header class="bg-light shadow-sm">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <!-- Logo -->
-        <div class="logo">
-          Kids <span>★</span>
-          <div class="icon">❤</div>
-        </div>
-
-        <!-- Burger Button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Collapsible Menu -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link text" href="index.html" style="color: #EECAD5;">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="product.html">Categorys</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="aboutUs.html">About us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark" href="contactUs.html">Contact </a>
-            </li>
-
-          </ul>
-
-          <!-- Search Bar and Icons -->
-          <div class="d-flex align-items-center">
-            <!-- Search Bar -->
-            <div class="input-group me-3">
-              <input type="text" class="form-control" placeholder="Search Product">
-              <button class="btn btn-outline-secondary" type="button">
-
-                <i class="fa fa-search"></i>
-              </button>
+        <div class="container">
+            <!-- Logo -->
+            <div class="logo">
+                Tiny Joys   <span>★</span>
+                <div class="icon">❤</div>
             </div>
 
-            <!-- User Icon -->
-            <a style="color: black;" href="userProfile.html">
-              <i class="fa-regular fa-user fs-5"></i>
-              <span id="nav-username"></span>
+            <!-- Burger Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            </a>
-          </div>
+            <!-- Collapsible Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text" href="index.html" style="color: #EECAD5;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="product.html">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="aboutUs.html">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="contactUs.html">Contact </a>
+                    </li>
+
+                </ul>
+
+                <!-- Search Bar and Icons -->
+                <div class="d-flex align-items-center">
+                    <!-- Search Bar -->
+                    <div class="input-group me-3">
+                        <input type="text" class="form-control" placeholder="Search Product">
+                        <button class="btn btn-outline-secondary" type="button">
+
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <!-- User Icon -->
+                    <a style="color: black;" href="userProfile.html">
+                        <i class="fa-regular fa-user fs-5"></i>
+                    </a>
+                    <span id="nav-username"></span>
+                    <span class="fav-icon">
+                        <a href="wishList.html"><i class="fa-regular fa-heart"></i></a>
+                    </span>
+                </div>
+            </div>
         </div>
-      </div>
     </nav>
-  </header>
-  <!-- ========= hero section=========================================  -->
-  <div class="imageHero">
-    <img src="blue-easter-car-with-blue-egg-yellow-ribbon_23-2149301320.jpg" alt="Hero Image"
-      class="img-fluid w-100 mb-5" height="90%" />
-  </div>
+</header>
+<!-- ========= hero section=========================================  -->
+<div class="imageHero">
+  <img
+    src="img/133062.jpg"
+    alt="Hero Image"
+    class="img-fluid w-100 mb-5"
+     height=30vh;
+  />
+</div>
 
   <!-- main section=============================  -->
 
-  <!-- Gift Details Section -->
-  <div id="gift-details">
-    <div id="img_container" class="container">
-      <div class="text-center">
-        <img id="mainImage" src="" alt="Main Image" class="main-image img-fluid">
-      </div>
-    </div>
-
-    <div class="gift-info">
-      <h1 id="productName"></h1>
-      <div class="rating" id="productRating"></div>
-      <p class="price" id="productPrice"></p>
-      <hr>
-      <p class="description" id="productDescription"></p>
-    </div>
-  </div>
-  <!-- <div id="gift-details">
-      
-        <div  id="img_container" class="container ">
-            <div class="text-center">
-              <img id="mainImage" src="https://img.freepik.com/free-photo/cute-plush-toys-arrangement_23-2150312309.jpg?t=st=1736964499~exp=1736968099~hmac=d0b7498a0e9c4648547dabce140abd833d010b408673aa50d3d1b438fe918803&w=900" alt="Main Image" class="main-image img-fluid">
-            </div>
-          
-            <div  id="small_img" class="row mt-3">
-              <div class="col-3">
-                <img src="https://img.freepik.com/free-photo/still-life-crochet-plushies_23-2151091190.jpg?t=st=1736964423~exp=1736968023~hmac=2e24fc7b47940561b1d15fa4dd9c66ab4e0327ca7f3fa21daf14520652f1f705&w=360" alt="Thumbnail 1" class="thumbnail img-fluid" onclick="changeImage(this)">
-              </div>
-              <div class="col-3">
-                <img src="https://img.freepik.com/free-photo/still-life-crochet-plushies_23-2151091182.jpg?t=st=1736964402~exp=1736968002~hmac=c97a1855771d5088fb6db43088551eb3d7dec80613f76147ef426859d09c30f2&w=360" alt="Thumbnail 2" class="thumbnail img-fluid" onclick="changeImage(this)">
-              </div>
-              <div class="col-3">
-                <img src="https://img.freepik.com/free-photo/cute-plush-toys-arrangement_23-2150312275.jpg?t=st=1736964637~exp=1736968237~hmac=d046ea3f32dde1a32735e1a9b905f67840deb0bdfe9ec340c6c03c2cf1106190&w=360" alt="Thumbnail 3" class="thumbnail img-fluid" onclick="changeImage(this)">
-              </div>
-              <div class="col-3">
-                <img src="https://img.freepik.com/free-photo/still-life-crochet-plushies_23-2151091183.jpg?t=st=1736964613~exp=1736968213~hmac=eb5fe8496f5f87392a5d52cc1816cbda81f2817ffc0c710f1c355f3a8897759c&w=360" alt="Thumbnail 4" class="thumbnail img-fluid" onclick="changeImage(this)">
-              </div>
-            </div>
+    <div id="gift-details" class="container">
+      <div class="gift-content">
+        <!-- قسم الصورة -->
+        <div id="img_container" class="image-section">
+          <div class="image-wrapper">
+            <img id="mainImage" 
+                 src="https://img.freepik.com/free-photo/cute-plush-toys-arrangement_23-2150312309.jpg?t=st=1736964499~exp=1736968099~hmac=d0b7498a0e9c4648547dabce140abd833d010b408673aa50d3d1b438fe918803&w=900" 
+                 alt="Main Image" 
+                 class="main-image">
           </div>
-      
-
-
-      <div class="gift-info">
-        <h1>Bella Doll with Knitted Bunnies</h1>
-        <div class="rating">
-          <span>⭐ 4.8</span>
-          <span>200 reviews</span>
-          <span>1200+ sold</span>
         </div>
-        <p class="price">$40.99</p>
-        <hr>
-        <p class="description">
-          Bella is a charming doll with a stylish design and soft touch. She comes with knitted bunnies, making her the perfect gift for your loved ones.
-        </p>
-        <hr class="line_color">
-        <div class="actions">
-          <input type="number" id="quantity" name="quantity" min="1" value="1">
-          <button   onclick="addToCart()" class="add-to-cart">Add to Cart</button>
+    
+        <!-- قسم النص -->
+        <div class="text-section">
+          <h1>Bella Doll with Knitted Bunnies</h1>
+          <div class="rating">
+            <span>⭐ 4.8</span>
+            <span>200 reviews</span>
+            <span>1200+ sold</span>
+          </div>
+          <p class="price">$40.99</p>
+          <hr>
+          <p class="description">
+            Bella is a charming doll with a stylish design and soft touch. She comes with knitted bunnies, making her the perfect gift for your loved ones.
+          </p>
+          <hr class="line_color">
+          <div class="actions">
+            <input type="number" id="quantity" name="quantity" min="1" value="1">
+            <button id="addToCart" class="add-to-cart">Add to Cart</button>
+          </div>
         </div>
       </div>
-    </div> -->
-  <!--  ===================form review ============================= -->
+    </div>
+   <!--  ===================form review ============================= -->
 
   <section class="reviews-section">
     <div class=" review_container">
