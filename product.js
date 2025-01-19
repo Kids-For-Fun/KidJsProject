@@ -129,8 +129,6 @@ let displayDetails = function (product) {
 };
 
 
-
-
 // ----------------------filter feature----------------------
 
 // --------Price filter
