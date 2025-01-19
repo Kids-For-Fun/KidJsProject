@@ -1,14 +1,14 @@
-  // hover logo navbar
-  const logo = document.querySelector('.logo');
-        const icon = document.querySelector('.icon');
+// hover logo navbar
+const logo = document.querySelector('.logo');
+const icon = document.querySelector('.icon');
 
-        logo.addEventListener('mouseover', () => {
-            icon.style.color = '#EECAD5';
-        });
+logo.addEventListener('mouseover', () => {
+  icon.style.color = '#EECAD5';
+});
 
-        logo.addEventListener('mouseout', () => {
-            icon.style.color = '#FF69B4';
-        });
+logo.addEventListener('mouseout', () => {
+  icon.style.color = '#FF69B4';
+});
 
 
 // firebase==================
@@ -40,12 +40,12 @@ const edit_emailBtn = document.getElementById('edit_email');
 const edit_nameBtn = document.getElementById('edit_name');
 const edit_passwordBtn = document.getElementById('edit_password');
 
-const editNameForm = document.getElementById('edit-box-name'); 
-const editEmailForm = document.getElementById('edit-box-email'); 
-const editPasswordForm = document.getElementById('edit-box-password'); 
+const editNameForm = document.getElementById('edit-box-name');
+const editEmailForm = document.getElementById('edit-box-email');
+const editPasswordForm = document.getElementById('edit-box-password');
 
-const deleteNameBtn = document.querySelector('.delet_name_btn'); 
-const deleteEmailBtn = document.querySelector('.delet_email_btn'); 
+const deleteNameBtn = document.querySelector('.delet_name_btn');
+const deleteEmailBtn = document.querySelector('.delet_email_btn');
 
 const showName = document.getElementById('showName');
 const showEmail = document.getElementById('showEmail');
@@ -116,7 +116,7 @@ document.getElementById("edit_email").addEventListener("click", () => {
 
 
 document.getElementById("edit_password").addEventListener("click", (event) => {
-  event.preventDefault(); 
+  event.preventDefault();
 
   const oldPassword = document.getElementById("old_Password").value;
   const newPassword = document.getElementById("newPassword").value;
