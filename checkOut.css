@@ -1,16 +1,32 @@
 body {
   font-family: "Raleway", arial, sans-serif;
 }
+
 @media (min-width: 1025px) {
   .h-custom {
     height: 100vh !important;
   }
 }
- :root {
-        --main-color: #eecad5;
-        --text-color: #1d2939;
-        --bg--color: #f9ffff;
-      }
+
+.fav-icon i {
+  font-size: 20px;
+  margin-left: 20px;
+  margin-top: 5px;
+  transition: color 0.5s;
+  transition: font-size 0.5s;
+}
+
+.fav-icon i:hover {
+  color: #eecad5;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+:root {
+  --main-color: #eecad5;
+  --text-color: #1d2939;
+  --bg--color: #f9ffff;
+}
 
 #social_icon {
   padding-bottom: 15px;
@@ -29,6 +45,7 @@ body {
 #social_icon i:hover {
   color: #ff69b4;
 }
+
 .logo {
   font-size: 3rem;
   font-weight: bold;
@@ -41,7 +58,8 @@ body {
 
 .logo span {
   font-size: 2rem;
-  color: #ffb6c1; /* A complementary pink color */
+  color: #ffb6c1;
+  /* A complementary pink color */
 }
 
 .logo:hover {
@@ -51,16 +69,19 @@ body {
 
 .icon {
   font-size: 1.5rem;
-  color: #ff69b4; /* Another fun color for the icon */
+  color: #ff69b4;
+  /* Another fun color for the icon */
   animation: bounce 1.5s infinite;
 }
 
 /* / *Add a bouncing animation */
 @keyframes bounce {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-10px);
   }
