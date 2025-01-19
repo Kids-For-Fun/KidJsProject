@@ -308,7 +308,7 @@ async function CityfetchAndPrint(selectedValue) {
   cardContainer.innerHTML = "";
   // تأكد من الفلترة بشكل صحيح قبل التكرار
   let filteredProducts = filteredData.filter(
-    (product) => product.City === selectedValue
+    (product) => product.city === selectedValue
   );
 
   // بعد الفلترة، نضيف فقط المنتجات التي تطابق اللون المحدد
