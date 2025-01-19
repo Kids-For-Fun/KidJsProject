@@ -48,7 +48,7 @@
         </div>
     </div>
 
-    <script type="module">
+    <!-- <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
         import {
             getAuth,
@@ -115,7 +115,82 @@
             }
         });
 
+    </script> -->
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import {
+            getAuth,
+            signInWithEmailAndPassword,
+            GoogleAuthProvider,
+            signInWithPopup
+        } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAgyWGXCAIR6NiKfkzkWZbBeOMPRDNwMg4",
+            authDomain: "contactus-a9d19.firebaseapp.com",
+            databaseURL: "https://contactus-a9d19-default-rtdb.firebaseio.com",
+            projectId: "contactus-a9d19",
+            storageBucket: "contactus-a9d19.appspot.com",
+            messagingSenderId: "290565306453",
+            appId: "1:290565306453:web:0995f78c2a17d582903cdc"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        auth.languageCode = 'en';
+
+        // Email & Password Login
+        let button = document.getElementById("login-btn");
+
+        button.addEventListener('click', function (event) {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailRegex.test(email)) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Invalid Email',
+                    text: 'Please enter a valid email address.'
+                });
+                return;
+            }
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
+                    window.location.href = "index.html";
+                    alert('Welcome to the world of kids');
+                })
+                .catch((error) => {
+                    alert("Incorrect email or password");
+                });
+        });
+
+        // Google Sign-In
+        const googleSignInBtn = document.getElementById('google-signin-btn');
+        const provider = new GoogleAuthProvider();
+
+        googleSignInBtn.addEventListener('click', async () => {
+            try {
+                const result = await signInWithPopup(auth, provider);
+                const user = result.user;
+                alert(`Welcome ${user.displayName}`);
+                window.location.href = "index.html";  // Redirect to home page after sign-in
+            } catch (error) {
+                console.error("Error signing in with Google:", error);
+                alert("Google Sign-In failed: " + error.message);
+            }
+        });
+
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </body>
 
 </html>

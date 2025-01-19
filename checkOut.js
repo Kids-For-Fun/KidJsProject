@@ -88,3 +88,6 @@ function validateExpiration(expiration) {
 function validateCVV(cvv) {
   return /^\d{3}$/.test(cvv);
 }
+let username = localStorage.getItem("username");
+document.getElementById("nav-username").textContent = username;
+document.getElementById("nav-username").style.margin = "10px";

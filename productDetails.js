@@ -1,22 +1,22 @@
 
-   
-   // Change the color dynamically on hover(style)
-   const logo = document.querySelector('.logo');
-   const icon = document.querySelector('.icon');
 
-   logo.addEventListener('mouseover', () => {
-       icon.style.color = '#EECAD5';
-   });
+// Change the color dynamically on hover(style)
+const logo = document.querySelector('.logo');
+const icon = document.querySelector('.icon');
 
-   logo.addEventListener('mouseout', () => {
-       icon.style.color = '#FF69B4';
-   });
+logo.addEventListener('mouseover', () => {
+  icon.style.color = '#EECAD5';
+});
+
+logo.addEventListener('mouseout', () => {
+  icon.style.color = '#FF69B4';
+});
 
 
 // main image
 function changeImage(thumbnail) {
-const mainImage = document.getElementById('mainImage');
-mainImage.src = thumbnail.src;
+  const mainImage = document.getElementById('mainImage');
+  mainImage.src = thumbnail.src;
 }
 
 
@@ -26,22 +26,22 @@ let cardContainer = document.getElementById("cardContainer");
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
 import {
-getDatabase,
-ref,
-set,
-push,
-get,
+  getDatabase,
+  ref,
+  set,
+  push,
+  get,
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 
 // تهيئة Firebase
 const firebaseConfig = {
-apiKey: "AIzaSyAgyWGXCAIR6NiKfkzkWZbBeOMPRDNwMg4",
-authDomain: "contactus-a9d19.firebaseapp.com",
-databaseURL: "https://contactus-a9d19-default-rtdb.firebaseio.com",
-projectId: "contactus-a9d19",
-storageBucket: "contactus-a9d19.firebasestorage.app",
-messagingSenderId: "290565306453",
-appId: "1:290565306453:web:0995f78c2a17d582903cdc",
+  apiKey: "AIzaSyAgyWGXCAIR6NiKfkzkWZbBeOMPRDNwMg4",
+  authDomain: "contactus-a9d19.firebaseapp.com",
+  databaseURL: "https://contactus-a9d19-default-rtdb.firebaseio.com",
+  projectId: "contactus-a9d19",
+  storageBucket: "contactus-a9d19.firebasestorage.app",
+  messagingSenderId: "290565306453",
+  appId: "1:290565306453:web:0995f78c2a17d582903cdc",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -53,7 +53,7 @@ const db = getDatabase(app);
 // add products information ضافة معلومات منتج معين إلى صفحة الويب 
 document.addEventListener('DOMContentLoaded', () => {
   const urlParams = new URLSearchParams(window.location.search);
-  const productId = urlParams.get('id');  
+  const productId = urlParams.get('id');
 
   if (productId) {
     const productRef = ref(db, `products/${productId}`);
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Function to write data to Firebase==============================
 function writeReviewData(name, rating, reviewText, imageUrl) {
   const reviewsRef = ref(db, 'reviews');
-  const newReviewRef = push(reviewsRef);  
+  const newReviewRef = push(reviewsRef);
   set(newReviewRef, {
     name: name,
     rating: rating,
@@ -95,7 +95,7 @@ function writeReviewData(name, rating, reviewText, imageUrl) {
     imageUrl: imageUrl || '',
     timestamp: Date.now(),
 
-    
+
   }).then(() => {
     console.log('Review data saved successfully!');
   }).catch((error) => {
@@ -107,7 +107,7 @@ function displayReview(review) {
   const reviewsContainer = document.getElementById('reviewsContainer');
   const reviewCard = document.createElement('div');
   reviewCard.classList.add('review-card');
-  
+
   reviewCard.innerHTML = `
     <div class="review-header">
       <img src="${review.imageUrl}" alt="User Image">
@@ -125,8 +125,8 @@ function displayReview(review) {
 
 
 // Event listener for form submission
-document.getElementById('reviewForm').addEventListener('submit', function(event) {
-  event.preventDefault();  
+document.getElementById('reviewForm').addEventListener('submit', function (event) {
+  event.preventDefault();
 
   const name = document.getElementById('productName').value;
   const rating = document.querySelector(".output");
@@ -172,4 +172,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-
+let username = localStorage.getItem("username");
+document.getElementById("nav-username").textContent = username;
+document.getElementById("nav-username").style.margin = "10px";
