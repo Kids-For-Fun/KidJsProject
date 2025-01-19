@@ -60,53 +60,6 @@
         </symbol>
     </svg>
 
-    <!-- <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
-        <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
-            aria-expanded="false" data-bs-toggle="dropdown" aria-label="Toggle theme (auto)">
-            <svg class="bi my-1 theme-icon-active" width="1em" height="1em">
-                <use href="#circle-half"></use>
-            </svg>
-            <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
-            <li>
-                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
-                    aria-pressed="false">
-                    <svg class="bi me-2 opacity-50" width="1em" height="1em">
-                        <use href="#sun-fill"></use>
-                    </svg>
-                    Light
-                    <svg class="bi ms-auto d-none" width="1em" height="1em">
-                        <use href="#check2"></use>
-                    </svg>
-                </button>
-            </li>
-            <li>
-                <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
-                    aria-pressed="false">
-                    <svg class="bi me-2 opacity-50" width="1em" height="1em">
-                        <use href="#moon-stars-fill"></use>
-                    </svg>
-                    Dark
-                    <svg class="bi ms-auto d-none" width="1em" height="1em">
-                        <use href="#check2"></use>
-                    </svg>
-                </button>
-            </li>
-            <li>
-                <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
-                    aria-pressed="true">
-                    <svg class="bi me-2 opacity-50" width="1em" height="1em">
-                        <use href="#circle-half"></use>
-                    </svg>
-                    Auto
-                    <svg class="bi ms-auto d-none" width="1em" height="1em">
-                        <use href="#check2"></use>
-                    </svg>
-                </button>
-            </li>
-        </ul>
-    </div> -->
 
 
     <header class="bg-light shadow-sm">
@@ -131,7 +84,7 @@
                             <a class="nav-link text" href="index.html" style="color: #EECAD5;">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="product.html">Categorys</a>
+                            <a class="nav-link text-dark" href="product.html">Categories</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="aboutUs.html">About us</a>
@@ -158,6 +111,9 @@
                             <i class="fa-regular fa-user fs-5"></i>
                         </a>
                         <span id="nav-username"></span>
+                        <span class="fav-icon">
+                            <a href="wishList.html"><i class="fa-regular fa-heart"></i></a>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -175,10 +131,7 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                    </svg> -->
+
 
 
                     <img src="img/5759.jpg" class="d-block w-100" alt="...">
@@ -188,15 +141,11 @@
                         <div class="carousel-caption text-start" id="first-text">
                             <h1>Kids Gift</h1>
                             <p class="opacity-75">Simple, Childhood, Love</p>
-                            <!-- <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p> -->
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                    </svg> -->
+
 
                     <img src="img/133062.jpg" class="d-block w-100" alt="...">
 
@@ -206,22 +155,17 @@
                         <div class="carousel-caption">
                             <h1>Where every kids adventure begins!"</h1>
                             <p></p>
-                            <!-- <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p> -->
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-                    </svg> -->
+
                     <img src="img/2147781763.jpg" class="d-block w-100" alt="...">
 
                     <div class="container">
                         <div class="carousel-caption text-end">
                             <h1>Every click leads to a new adventure!</h1>
-                            <!-- <p>Some representative placeholder content for the third slide of this carousel.</p> -->
-                            <!-- <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p> -->
+
                         </div>
                     </div>
                 </div>
@@ -337,35 +281,6 @@
 
 
 
-
-        <!-- slider -->
-        <!-- <div class="cat-card">
-            <div class="section-header">
-                <h2 style="color: #eecad5">Categories</h2>
-                <p>Check our trending</p>
-            </div>
-            <div class="w3-main" >
-                <div class="w3-row-padding w3-padding-16 w3-center shadow-cat" id="events">
-                    <div class="w3-quarter">
-                        <a href="/Home/Tickets">
-                            <img src="img/133062.jpg" alt="Adam Concert" /></a>
-                        <h3 class="mt-3">TOY</h3>
-                    </div>
-                    <div class="w3-quarter">
-                        <img src="img/133062.jpg" alt="Hamaki Concert" />
-                        <h3 class="mt-3">TOY</h3>
-                    </div>
-                    <div class="w3-quarter">
-                        <img src="img/133062.jpg" alt="Mahmoud Concert" />
-                        <h3 class="mt-3">TOY</h3>
-                    </div>
-                    <div class="w3-quarter">
-                        <img src="img/133062.jpg" alt="Siilawy Concert" />
-                        <h3 class="mt-3">TOY</h3>
-                    </div>
-                </div>
-
-        </div> -->
         <div class="row featurette about-sectionn">
             <div class="col-md-7 order-md-2  d-flex flex-column gap-5 about-txt">
                 <div class="section-header about-title">
@@ -436,7 +351,7 @@
 
 
     <!-- <script src="../assets/dist/js/bootstrap.bundle.min.js"></script> -->
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -446,6 +361,7 @@
 
 
     </script>
+</body>
 
 
 

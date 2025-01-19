@@ -114,3 +114,6 @@ let displayDetails = function (product) {
   console.log(product);
   localStorage.setItem("details", JSON.stringify(product));
 };
+let username = localStorage.getItem("username");
+document.getElementById("nav-username").textContent = username;
+document.getElementById("nav-username").style.margin = "10px";
