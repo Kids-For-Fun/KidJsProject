@@ -19,6 +19,13 @@ const firebaseConfig = {
   storageBucket: "contactus-a9d19.appspot.com",
   messagingSenderId: "290565306453",
   appId: "1:290565306453:web:0995f78c2a17d582903cdc",
+  apiKey: "AIzaSyAgyWGXCAIR6NiKfkzkWZbBeOMPRDNwMg4",
+  authDomain: "contactus-a9d19.firebaseapp.com",
+  databaseURL: "https://contactus-a9d19-default-rtdb.firebaseio.com",
+  projectId: "contactus-a9d19",
+  storageBucket: "contactus-a9d19.appspot.com",
+  messagingSenderId: "290565306453",
+  appId: "1:290565306453:web:0995f78c2a17d582903cdc",
 };
 
 
@@ -31,6 +38,7 @@ const provider = new GoogleAuthProvider();
 auth.languageCode = "en";
 
 
+// Handle regular email/password signup
 // Handle regular email/password signup
 let button = document.getElementById("authh");
 
