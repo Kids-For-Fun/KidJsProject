@@ -48,8 +48,26 @@
         transform: translateY(-10px);
     }
   }
+<<<<<<< HEAD
   
   
+=======
+
+  .fav-icon i {
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 5px;
+    transition: color 0.5s;
+    transition: font-size 0.5s;
+    color: #1d2939;
+}
+
+.fav-icon i:hover {
+    color: #eecad5;
+    font-size: 30px;
+    cursor: pointer;
+}
+>>>>>>> b7d72e2b130df1c34393b3ea16c451a81e339f38
   /* -----------------------hero section----------------------- */
   
   .heroSection img {
@@ -75,6 +93,9 @@
     color: var(--text-color);
     font-weight: bold;
     box-shadow: #7e445684 4px 4px 8px;
+  }
+  .dropDownItems:hover{
+    cursor: pointer;
   }
   
   /* -----------------------product cards----------------------- */
