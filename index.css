@@ -186,7 +186,12 @@ footer {
 }
 
 #social_icon {
-    padding-bottom: 15px;
+
+    /* padding-bottom: 15px; */
+    padding-left: 50px;
+    margin: 0;
+    display: flex;
+    gap: 30px;
 }
 
 #social_icon li {
@@ -196,6 +201,7 @@ footer {
 
 #social_icon i {
     color: var(--text-color);
+    font-size: 20px;
     transition: color 0.3s ease;
 }
 
@@ -678,16 +684,21 @@ footer {
     display: none;
 }
 
+#favoriteButton {
+    padding-left: 80px;
+
+}
+
 .fav-icon i {
     font-size: 20px;
     margin-left: 20px;
     margin-top: 5px;
     transition: color 0.5s;
-    transition: font-size 0.5s;
+    transition: font-size 0.7s;
 }
 
-.fav-icon i:hover {
-    color: #eecad5;
+.fav-icon i :hover {
+    color: #e50d0d;
     font-size: 30px;
     cursor: pointer;
 }
