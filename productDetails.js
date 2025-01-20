@@ -6,7 +6,6 @@ console.log(proDetailsData.color)
 
   function addToCart() {
     if (proDetailsData) {
-      // استرجاع المنتجات الموجودة في السلة أو إنشاء مصفوفة جديدة
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
       // إضافة المنتج الحالي إلى السلة
@@ -98,13 +97,6 @@ if (proDetailsData) {
   const ratingElement = document.querySelector(".rating span:nth-child(1)");
   ratingElement.textContent = `⭐ ${proDetailsData.rating}`;
 
-  // تحديث عدد المراجعات
-  const reviewsElement = document.querySelector(".rating span:nth-child(2)");
-  reviewsElement.textContent = `${proDetailsData.reviews} reviews`;
-
-  // تحديث عدد المنتجات المباعة
-  const soldElement = document.querySelector(".rating span:nth-child(3)");
-  soldElement.textContent = `${proDetailsData.sold}+ sold`;
 
   // تحديث السعر
   document.querySelector(".price").textContent = `$${proDetailsData.price}`;

@@ -21,7 +21,7 @@ import {
   updateEmail,
   updatePassword,
   reauthenticateWithCredential,
-  
+  EmailAuthProvider, // أضف هذا السطر لاستيراد EmailAuthProvider
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 
 const firebaseConfig = {
@@ -61,6 +61,13 @@ const editPasswordForm = document.getElementById('edit-box-password');
 
 
 // ================= for editing ============
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("User is signed in:", user);
+  } else {
+    console.log("No user is signed in.");
+  }
+});
 
 
 
@@ -114,40 +121,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     } 
     else {
-      console.log("Please log in to edit your profile.");
     }
   });
 });
 
 
 //=============================================password=======================
-// استماع للأحداث الخاصة بكل زر
 edit_nameBtn.addEventListener('click', () => {
-  // إخفاء جميع النماذج الأخرى
   editEmailForm.style.display = 'none';
   editPasswordForm.style.display = 'none';
-  
-  // تبديل عرض نموذج تعديل الاسم
   editNameForm.style.display = editNameForm.style.display === 'none' ? 'block' : 'none';
 });
-
 edit_emailBtn.addEventListener('click', () => {
-  // إخفاء جميع النماذج الأخرى
   editNameForm.style.display = 'none';
   editPasswordForm.style.display = 'none';
-  
-  // تبديل عرض نموذج تعديل البريد الإلكتروني
   editEmailForm.style.display = editEmailForm.style.display === 'none' ? 'block' : 'none';
 });
-
 edit_passwordBtn.addEventListener('click', () => {
-  // إخفاء جميع النماذج الأخرى
   editNameForm.style.display = 'none';
   editEmailForm.style.display = 'none';
-  
-  // تبديل عرض نموذج تعديل كلمة المرور
   editPasswordForm.style.display = editPasswordForm.style.display === 'none' ? 'block' : 'none';
 });
+
+
+
+
+
+
+
+
+
+
 
 // إضافة الكود الجديد (تحديث كلمة المرور) بعد هذه الأحداث لتجنب التعارض
 
@@ -157,24 +161,23 @@ document.querySelector(".edit_password_btn").addEventListener("click", async (e)
   const oldPassword = document.getElementById("old_Password").value;
   const newPassword = document.getElementById("newPassword").value;
   const newPasswordConfirm = document.getElementById("newPasswordConfirm").value;
-  const errorMessage = document.getElementById("error-message");
 
-  // التحقق من تطابق كلمتي المرور الجديدة
   if (newPassword !== newPasswordConfirm) {
-    errorMessage.style.display = "block";
-    errorMessage.textContent = "Passwords do not match!";
+    alert("Passwords do not match!");
     return;
-  } else {
-    errorMessage.style.display = "none";
   }
 
   try {
-    console.log("Reauthenticating user:");
+    // الحصول على المستخدم الحالي
+    const user = auth.currentUser;
 
-    // إعداد بيانات الاعتماد لإعادة التوثيق
+    if (!user) {
+      alert("No user is signed in.");
+      return;
+    }
+
+    // إعادة التوثيق
     const credential = EmailAuthProvider.credential(user.email, oldPassword);
-
-    // إعادة التوثيق باستخدام كلمة المرور القديمة
     await reauthenticateWithCredential(user, credential);
 
     console.log("Reauthentication successful!");
@@ -182,16 +185,98 @@ document.querySelector(".edit_password_btn").addEventListener("click", async (e)
     // تحديث كلمة المرور
     await updatePassword(user, newPassword);
     alert("Password updated successfully!");
-
-    // إعادة تعيين الحقول
-    document.getElementById("edit-password-form").reset();
-    document.getElementById("edit-box-password").style.display = "none";
   } catch (error) {
-    console.error("Error during password update:", error);
+    console.error("Error updating password:", error);
+
     if (error.code === "auth/wrong-password") {
-      alert("The old password is incorrect. Please try again.");
+      alert("The old password is incorrect.");
+    } else if (error.code === "auth/requires-recent-login") {
+      alert("Please sign in again to update your password.");
     } else {
-      alert("Failed to update password. Please check your details and try again.");
+      alert("An error occurred. Please try again.");
+    }
+  }
+});
+
+import { getFirestore, doc, updateDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
+
+const db = getFirestore(app);
+
+const updateUserInFirestore = async (uid, newName) => {
+  try {
+    const userRef = doc(db, "users", uid);
+    await updateDoc(userRef, { name: newName });
+    console.log("User name updated in Firestore.");
+  } catch (error) {
+    console.error("Error updating Firestore:", error);
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Get DOM elements
+const profileImage = document.getElementById("profileImageInReviews");
+const uploadInput = document.getElementById("uploadProfilePhoto");
+const changeProfileImageBtn = document.getElementById("changeProfileImageBtn");
+
+// Open file input dialog on button click
+changeProfileImageBtn.addEventListener("click", () => {
+  uploadInput.click();
+  console.log("g")
+});
+
+// Handle file selection and update profile image
+uploadInput.addEventListener("change", async (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    const user = auth.currentUser;
+    if (!user) {
+      alert("No user is signed in.");
+      return;
+    }
+
+    const filePath = `profileImages/${user.uid}`;
+    const fileRef = storageRef(storage, filePath);
+
+    try {
+      // Upload the file to Firebase Storage
+      await uploadBytes(fileRef, file);
+
+      // Get the file's URL
+      const photoURL = await getDownloadURL(fileRef);
+
+      // Update profile image in Realtime Database
+      await set(ref(db, `users/${user.uid}/profileImage`), photoURL);
+
+      // Update profile image on the page
+      profileImage.src = photoURL;
+
+      alert("Profile image updated successfully!");
+    } catch (error) {
+      console.error("Error updating profile image:", error);
+      alert("Failed to update profile image.");
     }
   }
 });
