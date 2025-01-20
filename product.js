@@ -17,6 +17,7 @@ import {
   getDatabase,
   ref,
   get,
+  set,
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 
 // تهيئة Firebase
@@ -32,6 +33,41 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+
+
+
+function writeUserData(userId, image, name, description, price, rating, color, gender, type) {
+    set(ref(db, "products/" + userId), {
+      image: image,
+      name: name,
+      description: description,
+      price: price,
+      rating: rating,
+      color: color,
+      gender: gender,
+      type: type,
+    })
+      .then(() => {
+        console.log("Data written successfully!");
+      })
+      .catch((error) => {
+        console.error("Error writing data:", error);
+      });
+  }
+
+  // writeUserData(
+  //   1,
+  //   "https://cdn3.dumyah.com/image/cache/data/2023/08/16930598521015171335-800x800.webp",
+  //   "Headphones – Frozen",
+  //   "Disney Frozen kids' stereo headphones, suitable for ages 3 and up.",
+  //   15.90,
+  //   4.6,
+  //   "blue",
+  //   "female",
+  //   "electronics"
+  // )
+
+
 
 // المتغيرات
 let cardContainer = document.getElementById("cardContainer");
@@ -85,9 +121,9 @@ getAllData().then((data) => {
                 <span class="fw-bold">$${product.price}</span>
                 <span class="text-warning">&#9733;${product.rating}</span>
               </div>
-              <div>
+              <div class="justify-content-around d-flex align-items-center">
                 <button id="detailsButton" class="m-1 btn btn-pink" style="background-color: #f8d7da; color: #000;" data-id="${userId}"><a style="text-decoration: none; color:black" href="productDetails.html">More Details</a></button>
-                <button id="favoriteButton" class="btn btn-pink" style="background-color: #f8d7da; color: #000;">Add to favorite</button>
+                <i id="favoriteButton" class="fs-4 fa-regular fa-heart"></i>
               </div>
             </div>
           </div>
@@ -106,6 +142,7 @@ getAllData().then((data) => {
         .querySelector("#favoriteButton")
         .addEventListener("click", () => {
           addToFavorites(product);
+          dataItem.querySelector("#favoriteButton").style.color = "red";
         });
     }
   } else {
@@ -175,13 +212,18 @@ async function PriceValue(selectedPriceValue) {
               <button id="detailsButton" class="m-1 btn btn-pink" style="background-color: #f8d7da; color: #000;" data-id="">
                 <a style="text-decoration: none; color:black" href="productDetails.html">More Details</a>
               </button>
-              <button id="favoriteButton" class="btn btn-pink" style="background-color: #f8d7da; color: #000;">Add to favorite</button>
+              <i id="favoriteButton" class="fs-4 fa-regular fa-heart"></i>
             </div>
           </div>
         </div>
       </div>
     </div>
     `;
+    dataItem
+        .querySelector("#favoriteButton")
+        .addEventListener("click", () => {
+          dataItem.querySelector("#favoriteButton").style.color = "red";
+        });
       cardContainer.appendChild(dataItem); // أضف العنصر إلى الحاوية
     });
   });
@@ -227,7 +269,7 @@ async function fetchAndPrint(selectedValue) {
               <button id="detailsButton" class="m-1 btn btn-pink" style="background-color: #f8d7da; color: #000;" data-id="">
                 <a style="text-decoration: none; color:black" href="productDetails.html">More Details</a>
               </button>
-              <button id="favoriteButton" class="btn btn-pink" style="background-color: #f8d7da; color: #000;">Add to favorite</button>
+              <i id="favoriteButton" class="fs-4 fa-regular fa-heart"></i>
             </div>
           </div>
         </div>
@@ -279,7 +321,7 @@ async function ColorfetchAndPrint(selectedValue) {
               <button id="detailsButton" class="m-1 btn btn-pink" style="background-color: #f8d7da; color: #000;" data-id="">
                 <a style="text-decoration: none; color:black" href="productDetails.html">More Details</a>
               </button>
-              <button id="favoriteButton" class="btn btn-pink" style="background-color: #f8d7da; color: #000;">Add to favorite</button>
+              <i id="favoriteButton" class="fs-4 fa-regular fa-heart"></i>
             </div>
           </div>
         </div>
@@ -308,7 +350,7 @@ async function CityfetchAndPrint(selectedValue) {
   cardContainer.innerHTML = "";
   // تأكد من الفلترة بشكل صحيح قبل التكرار
   let filteredProducts = filteredData.filter(
-    (product) => product.city === selectedValue
+    (product) => product.type === selectedValue
   );
 
   // بعد الفلترة، نضيف فقط المنتجات التي تطابق اللون المحدد
@@ -333,7 +375,7 @@ async function CityfetchAndPrint(selectedValue) {
               <button id="detailsButton" class="m-1 btn btn-pink" style="background-color: #f8d7da; color: #000;" data-id="">
                 <a style="text-decoration: none; color:black" href="productDetails.html">More Details</a>
               </button>
-              <button id="favoriteButton" class="btn btn-pink" style="background-color: #f8d7da; color: #000;">Add to favorite</button>
+              <i id="favoriteButton" class="fs-4 fa-regular fa-heart"></i>
             </div>
           </div>
         </div>

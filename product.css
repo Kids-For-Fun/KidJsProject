@@ -163,3 +163,7 @@ footer {
 #social_icon i:hover {
   color: #ff69b4;
 }
+
+#favoriteButton:hover{
+  color: red;
+}
