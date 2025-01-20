@@ -49,19 +49,19 @@
     }
   }
 
-  .fav-icon i {
-    font-size: 20px;
-    margin-left: 20px;
-    margin-top: 5px;
-    transition: color 0.5s;
-    transition: font-size 0.5s;
-    color: #1d2939;
+.fav-icon i {
+  font-size: 20px;
+  margin-left: 20px;
+  margin-top: 5px;
+  transition: color 0.5s;
+  transition: font-size 0.5s;
+  color: #1d2939;
 }
 
 .fav-icon i:hover {
-    color: #eecad5;
-    font-size: 30px;
-    cursor: pointer;
+  color: #eecad5;
+  font-size: 30px;
+  cursor: pointer;
 }
   /* -----------------------hero section----------------------- */
   
