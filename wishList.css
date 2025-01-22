@@ -130,19 +130,23 @@ td {
 img {
   border-radius: 10px;
 }
-
+.goBackBtnContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 #goBackButton {
   background-color: var(--main-color);
   color: white;
   padding: 10px 15px;
   font-size: 16px;
   cursor: pointer;
-  margin-bottom: 20px;
   border-radius: 5px;
+  border-color: #ff0080;
 }
 
 #goBackButton:hover {
-  background-color: #d3d3d3;
+  background-color: #d891a7;
   color: black;
 }
 
@@ -448,4 +452,14 @@ footer li {
     height: 50vh;
     /* Adjust hero section height */
   }
+}
+
+
+.imageHero {
+  height: 65vh;
+  background-image: url(img/Screenshot\ 2025-01-21\ 115812.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 50px;
 }
