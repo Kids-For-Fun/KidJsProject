@@ -78,7 +78,7 @@ function writeUserData(userId, image, name, description, price, rating, color, g
   //   15.90,
   //   4.6,
   //   "blue",
-  //   "female",
+  //   "female",b
   //   "electronics"
   // )
 
