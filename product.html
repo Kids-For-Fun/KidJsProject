@@ -50,8 +50,9 @@
           <div class="d-flex align-items-center">
             <!-- Search Bar -->
             <div class="input-group me-3">
-              <input type="text" class="form-control" placeholder="Search Product">
-              <button class="btn btn-outline-secondary" type="button">
+
+              <input type="text" class="form-control" placeholder="Search Product" id="searchinputt">
+              <button class="btn btn-outline-secondary" type="button" id="search-icn">
 
                 <i class="fa fa-search"></i>
               </button>
@@ -124,13 +125,14 @@
       <div class="dropdown">
         <a id="dropdownBTN" class="btn dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
           aria-expanded="false">
-          By cities
+          By type
         </a>
 
         <ul class="dropdown-menu">
-          <li id="threeStars" class="dropDownItems dropDownItemsCityrValue dropdown-item">zarqa</li>
-          <li id="fourStars" class="dropDownItems dropDownItemsCityrValue dropdown-item">amman</li>
-          <li id="fiveStars" class="dropDownItems dropDownItemsCityrValue dropdown-item">irbid</li>
+          <li id="threeStars" class="dropDownItems dropDownItemsCityrValue dropdown-item">toy</li>
+          <li id="fourStars" class="dropDownItems dropDownItemsCityrValue dropdown-item">lego</li>
+          <li id="fiveStars" class="dropDownItems dropDownItemsCityrValue dropdown-item">sport</li>
+          <li id="fiveStars" class="dropDownItems dropDownItemsCityrValue dropdown-item">electronics</li>
         </ul>
       </div>
     </div>
@@ -141,6 +143,9 @@
     <div class="container my-5">
       <h2>Related Gifts</h2>
     </div>
+  </div>
+  <div id="searched-products">
+
   </div>
 
   <!-- -----------------------footer----------------------- -->

@@ -83,16 +83,22 @@
 <div class="profile-container">
     <div class="profile-header">
         <div class="profile-avatar">
-            <img src="https://i.pinimg.com/736x/26/cf/47/26cf4792065d7b5da949c48a002d4f49.jpg" alt="Avatar">
+          <!-- الصورة الافتراضية -->
+          <img id="profileImageInReviews" src="https://i.pinimg.com/736x/26/cf/47/26cf4792065d7b5da949c48a002d4f49.jpg" alt="Avatar" style="width: 100px; height: 100px; border-radius: 50%;">
+          <!-- إدخال مخفي لتحميل الصورة -->
+          <input type="file" id="uploadProfilePhoto" accept="image/*" style="display: none;">
+          <!-- الزر لتغيير الصورة -->
+          <button id="changeProfileImageBtn">Change Profile Image</button>
         </div>
         <h1 class="welcome-message">Hello, <span id="showTitel">Ali Mohammad</span></h1>
-    </div>
+      </div>
 
     <div class="profile-info">
         <table class="info-table">
+             <table class="info-table">
             <tr>
                 <th>Name</th>
-                <th>Email</th>
+                <th style="display: none;">Email</th>
                 <th>Password</th>
             </tr>
             <tr>
@@ -100,15 +106,16 @@
                     <span id="showName">Ali Mohammad</span>
                     <i id="edit_name" class="bx bx-edit-alt"></i>
                 </td>
-                <td>
-                    <span id="showEmail">ali@email.com</span>
+                <td style="display: none;" >
+                    <span id="showEmail" >ali@email.com</span>
                     <i id="edit_email" class="bx bx-edit-alt"></i>
                 </td>
-                <td style="display: flex; justify-content: space-between;">
+                <td>
                     <span>********[Edit]</span>
                     <i id="edit_password" class="bx bx-edit-alt"></i>
                 </td>
             </tr>
+        </table>
         </table>
     </div>
     
