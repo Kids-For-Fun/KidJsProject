@@ -1,59 +1,53 @@
 :root {
-  --main-color: #eecad5;
-  --text-color: #1d2939;
-  --bg--color: #f9ffff;
-  --body--color: #f8fcff;
-}
-
-* {
-  margin: 0px;
-}
-
-body {
-  background-color: var(--body--color);
-}
-
-/* -----------------------header----------------------- */
-.logo {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #EECAD5;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-transform: uppercase;
-}
-
-.logo span {
-  font-size: 2rem;
-  color: #FFB6C1;
-  /* A complementary pink color */
-}
-
-.logo:hover {
-  transform: scale(1.1);
-  transition: transform 0.1s ease-in-out;
-}
-
-.icon {
-  font-size: 1.5rem;
-  color: #FF69B4;
-  /* Another fun color for the icon */
-  animation: bounce 1.5s infinite;
-}
-
-/* Add a bouncing animation */
-@keyframes bounce {
-
-  0%,
-  100% {
-    transform: translateY(0);
+    --main-color: #eecad5;
+    --text-color: #1d2939;
+    --bg--color: #f9ffff;
+    --body--color: #f8fcff;
   }
-
-  50% {
-    transform: translateY(-10px);
+  
+  * {
+    margin: 0px;
   }
-}
+  body {
+    background-color: var(--body--color);
+  }
+  
+  /* -----------------------header----------------------- */
+   .logo {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #EECAD5;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+  }
+  
+  .logo span {
+    font-size: 2rem;
+    color: #FFB6C1; /* A complementary pink color */
+  }
+  
+  .logo:hover {
+    transform: scale(1.1);
+    transition: transform 0.1s ease-in-out;
+  }
+  
+  .icon {
+    font-size: 1.5rem;
+    color: #FF69B4; /* Another fun color for the icon */
+    animation: bounce 1.5s infinite;
+  }
+  
+  /* Add a bouncing animation */
+  @keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+  }
 
 .fav-icon i {
   font-size: 20px;
@@ -69,6 +63,7 @@ body {
   font-size: 30px;
   cursor: pointer;
 }
+
 
 
 /* -----------------------hero section----------------------- */
@@ -167,3 +162,4 @@ footer {
 #favoriteButton:hover{
   color: red;
 }
+

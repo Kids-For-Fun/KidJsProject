@@ -89,7 +89,7 @@ async function fetchAndPrint() {
               </div>
               <div>
                 <button id="detailsButton" class="m-1 btn btn-pink" style="background-color: #f8d7da; color: #000;">More Details</button>
-                <button id="favoriteButton" class="btn btn-pink"  style="background-color: #f8d7da; color: #000;">Add to favorite</button>
+                <i id="favoriteButton" class="fs-4 fa-regular fa-heart fav-icon"></i>
               </div>
             </div>
           </div>
@@ -106,6 +106,7 @@ async function fetchAndPrint() {
     // const productCard = document.createElement("div");
     // productCard.classList.add("product-card");
 
+
     // أضيفي البيانات إلى العنصر
     document.getElementById("offers-products").innerHTML += `
         <div id="cardItem" class="card">
@@ -121,13 +122,14 @@ async function fetchAndPrint() {
               </div>
               <div>
                 <button id="detailsButton" class="m-1 btn btn-pink" style="background-color: #f8d7da; color: #000;">More Details</button>
-                <button id="favoriteButton" class="btn btn-pink" style="background-color: #f8d7da; color: #000;">Add to favorite</button>
+                <i id="favoriteButton" class="fs-4 fa-regular fa-heart fav-icon"></i>
               </div>
             </div>
           </div>
         </div>
       </div
     `;
+    document.getE
 
     // أضيفي العنصر إلى الحاوية
     // cardContainer.appendChild(productCard);
