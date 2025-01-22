@@ -37,6 +37,21 @@ const db = getDatabase(app);
 
 
 function writeUserData(userId, image, name, description, price, rating, color, gender, type) {
+
+
+
+// writeUserData(
+//   1,
+//   "https://cdn3.dumyah.com/image/cache/data/2023/08/16930598521015171335-800x800.webp",
+//   "Headphones – Frozen",
+//   "Disney Frozen kids' stereo headphones, suitable for ages 3 and up.",
+//   15.90,
+//   4.6,
+//   "blue",
+//   "female",
+//   "electronics"
+// )
+
     set(ref(db, "products/" + userId), {
       image: image,
       name: name,
@@ -69,6 +84,7 @@ function writeUserData(userId, image, name, description, price, rating, color, g
 
 
 
+
 // المتغيرات
 let cardContainer = document.getElementById("cardContainer");
 
@@ -83,6 +99,7 @@ function getAllData() {
         const data = snapshot.val(); // جلب كل البيانات
         if (data.products) {
           firebaseDataArray = Object.values(data.products); // تخزين بيانات `products` فقط
+
         }
         return data;
       } else {
@@ -110,26 +127,28 @@ getAllData().then((data) => {
       let product = data.products[userId];
       let dataItem = document.createElement("div");
       dataItem.innerHTML = `
-      <div id="cardItem" class="card">
-        <div class="col">
+          <div id="cardItem" class="card">
+          <div class="col">
           <div class="card h-100">
             <img id="imgCard" src="${product.image}" class="card-img-top" alt="Product Image">
             <div id="textCardContainer" class="card-body text-center">
               <h5 class="card-title">${product.name}</h5>
               <p class="card-text">${product.description}</p>
               <div class="d-flex justify-content-between">
-                <span class="fw-bold">$${product.price}</span>
-                <span class="text-warning">&#9733;${product.rating}</span>
+              <span class="fw-bold">$${product.price}</span>
+              <span class="text-warning">&#9733;${product.rating}</span>
               </div>
               <div class="justify-content-around d-flex align-items-center">
-                <button id="detailsButton" class="m-1 btn btn-pink" style="background-color: #f8d7da; color: #000;" data-id="${userId}"><a style="text-decoration: none; color:black" href="productDetails.html">More Details</a></button>
+
+              <button id="detailsButton" class="m-1 btn btn-pink" style="background-color: #f8d7da; color: #000;" data-id="${userId}"><a style="text-decoration: none; color:black" href="productDetails.html">More Details</a></button>
                 <i id="favoriteButton" class="fs-4 fa-regular fa-heart"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      `;
+                </div>
+                </div>
+                </div>
+                </div>
+                </div>
+                `;
+
       cardContainer.appendChild(dataItem);
 
       // إضافة حدث للزر "More Details"
@@ -149,6 +168,8 @@ getAllData().then((data) => {
     console.log("No users found!");
   }
 });
+
+
 
 // add To Favorites
 function addToFavorites(product) {
@@ -197,29 +218,31 @@ async function PriceValue(selectedPriceValue) {
     proData.forEach((e) => {
       let dataItem = document.createElement("div");
       dataItem.innerHTML += `
-    <div id="cardItem" class="card">
+      <div id="cardItem" class="card">
       <div class="col">
-        <div class="card h-100">
-          <img id="imgCard" src="${e.image}" class="card-img-top" alt="Product Image">
-          <div id="textCardContainer" class="card-body text-center">
-            <h5 class="card-title">${e.name}</h5>
-            <p class="card-text">${e.description}</p>
+      <div class="card h-100">
+      <img id="imgCard" src="${e.image}" class="card-img-top" alt="Product Image">
+      <div id="textCardContainer" class="card-body text-center">
+      <h5 class="card-title">${e.name}</h5>
+      <p class="card-text">${e.description}</p>
             <div class="d-flex justify-content-between">
               <span class="fw-bold">$${e.price}</span>
               <span class="text-warning">&#9733;${e.rating}</span>
-            </div>
-            <div>
+              </div>
+              <div>
               <button id="detailsButton" class="m-1 btn btn-pink" style="background-color: #f8d7da; color: #000;" data-id="">
-                <a style="text-decoration: none; color:black" href="productDetails.html">More Details</a>
+              <a style="text-decoration: none; color:black" href="productDetails.html">More Details</a>
               </button>
               <i id="favoriteButton" class="fs-4 fa-regular fa-heart"></i>
-            </div>
-          </div>
-        </div>
+
+              </div>
+              </div>
+              </div>
       </div>
     </div>
     `;
-    dataItem
+      dataItem
+
         .querySelector("#favoriteButton")
         .addEventListener("click", () => {
           dataItem.querySelector("#favoriteButton").style.color = "red";
@@ -255,7 +278,7 @@ async function fetchAndPrint(selectedValue) {
       let dataItem = document.createElement("div");
       dataItem.innerHTML += `
     <div id="cardItem" class="card">
-      <div class="col">
+    <div class="col">
         <div class="card h-100">
           <img id="imgCard" src="${e.image}" class="card-img-top" alt="Product Image">
           <div id="textCardContainer" class="card-body text-center">
@@ -272,10 +295,10 @@ async function fetchAndPrint(selectedValue) {
               <i id="favoriteButton" class="fs-4 fa-regular fa-heart"></i>
             </div>
           </div>
-        </div>
+          </div>
       </div>
-    </div>
-    `;
+      </div>
+      `;
       cardContainer.appendChild(dataItem); // أضف العنصر إلى الحاوية
     });
   });
@@ -306,28 +329,30 @@ async function ColorfetchAndPrint(selectedValue) {
     proData.forEach((e) => {
       let dataItem = document.createElement("div");
       dataItem.innerHTML += `
-    <div id="cardItem" class="card">
+      <div id="cardItem" class="card">
       <div class="col">
         <div class="card h-100">
-          <img id="imgCard" src="${e.image}" class="card-img-top" alt="Product Image">
-          <div id="textCardContainer" class="card-body text-center">
-            <h5 class="card-title">${e.name}</h5>
-            <p class="card-text">${e.description}</p>
+        <img id="imgCard" src="${e.image}" class="card-img-top" alt="Product Image">
+        <div id="textCardContainer" class="card-body text-center">
+        <h5 class="card-title">${e.name}</h5>
+        <p class="card-text">${e.description}</p>
             <div class="d-flex justify-content-between">
               <span class="fw-bold">$${e.price}</span>
               <span class="text-warning">&#9733;${e.rating}</span>
-            </div>
-            <div>
+              </div>
+              <div>
               <button id="detailsButton" class="m-1 btn btn-pink" style="background-color: #f8d7da; color: #000;" data-id="">
                 <a style="text-decoration: none; color:black" href="productDetails.html">More Details</a>
               </button>
               <i id="favoriteButton" class="fs-4 fa-regular fa-heart"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    `;
+
+              </div>
+              </div>
+              </div>
+              </div>
+              </div>
+              `;
+
       cardContainer.appendChild(dataItem); // أضف العنصر إلى الحاوية
     });
   });
@@ -362,22 +387,22 @@ async function CityfetchAndPrint(selectedValue) {
       dataItem.innerHTML += `
     <div id="cardItem" class="card">
       <div class="col">
-        <div class="card h-100">
-          <img id="imgCard" src="${e.image}" class="card-img-top" alt="Product Image">
-          <div id="textCardContainer" class="card-body text-center">
-            <h5 class="card-title">${e.name}</h5>
-            <p class="card-text">${e.description}</p>
-            <div class="d-flex justify-content-between">
-              <span class="fw-bold">$${e.price}</span>
-              <span class="text-warning">&#9733;${e.rating}</span>
-            </div>
-            <div>
-              <button id="detailsButton" class="m-1 btn btn-pink" style="background-color: #f8d7da; color: #000;" data-id="">
-                <a style="text-decoration: none; color:black" href="productDetails.html">More Details</a>
-              </button>
+      <div class="card h-100">
+      <img id="imgCard" src="${e.image}" class="card-img-top" alt="Product Image">
+      <div id="textCardContainer" class="card-body text-center">
+      <h5 class="card-title">${e.name}</h5>
+      <p class="card-text">${e.description}</p>
+      <div class="d-flex justify-content-between">
+      <span class="fw-bold">$${e.price}</span>
+      <span class="text-warning">&#9733;${e.rating}</span>
+      </div>
+      <div>
+      <button id="detailsButton" class="m-1 btn btn-pink" style="background-color: #f8d7da; color: #000;" data-id="">
+      <a style="text-decoration: none; color:black" href="productDetails.html">More Details</a>
+      </button>
               <i id="favoriteButton" class="fs-4 fa-regular fa-heart"></i>
             </div>
-          </div>
+            </div>
         </div>
       </div>
     </div>
@@ -386,3 +411,114 @@ async function CityfetchAndPrint(selectedValue) {
     });
   });
 }
+///////////////////////////SearhBar Filr
+// const data = [
+
+//   "Vtech",
+
+//   "Magical Fairy",
+
+//   "To The Rescue",
+
+//   "Jakks Pacific Sonic",
+
+//   "Dog Plush with Posable",
+
+//   "Minsa Football",
+
+//   "Little",
+
+//   "Watermelon",
+
+
+
+// ];
+
+
+// searchInput.addEventListener('input', () => {
+
+//   const query = searchInput.value;
+
+//   performSearch(query);
+
+// });
+
+
+// function displaySearchedProducts(){
+
+//   let allData = getAllData() ;
+
+//   allData.
+
+
+
+
+
+
+// }
+
+
+
+async function displaySearchedProducts(searchinput) {
+
+  let arr = await fetchProductsAndLog();
+  let filteredProducts = arr.filter(searched);
+
+  function searched(prd) {
+
+    if (prd.name == searchinput)
+      return prd;
+
+  }
+
+
+  cardContainer.style.display = "none";
+  filteredProducts.map((product) => {
+
+    document.getElementById("searched-products").innerHTML = `<div id="cardItem" class="card">
+          <div class="col">
+          <div class="card h-100">
+          <img id="imgCard" src="${product.image}" class="card-img-top" alt="Product Image">
+          <div id="textCardContainer" class="card-body text-center">
+          <h5 class="card-title">${product.name}</h5>
+          <p class="card-text">${product.description}</p>
+          <div class="d-flex justify-content-between">
+          <span class="fw-bold">$${product.price}</span>
+          <span class="text-warning">&#9733;${product.rating}</span>
+          </div>
+          <div>
+          <button id="detailsButton" class="m-1 btn btn-pink" style="background-color: #f8d7da; color: #000;" data-id="">
+          <a style="text-decoration: none; color:black" href="productDetails.html">More Details</a>
+          </button>
+                  <i id="favoriteButton" class="fs-4 fa-regular fa-heart"></i>
+                </div>
+      </div>
+            </div>
+          </div>
+        </div>
+        `;
+  });
+
+
+
+
+};
+
+let searchIcon = document.getElementById("search-icn");
+let searchinput;
+searchIcon.addEventListener("click", () => {
+
+  searchinput = document.getElementById("searchinputt").value;
+
+  displaySearchedProducts(searchinput);
+
+});
+
+
+
+
+
+
+
+
+
