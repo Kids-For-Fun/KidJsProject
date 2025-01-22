@@ -23,65 +23,49 @@ const db = getDatabase(app);
 const productsRef = ref(db, "products");
 
 // Function to display products in cart
-function displayCartItems(snapshot) {
-  const cartContainer = document.getElementById("cart-items");
-  cartContainer.innerHTML = ""; // Clear existing items
-  let totalPrice = 0;
 
-  snapshot.forEach((childSnapshot) => {
-    const product = childSnapshot.val();
-    totalPrice += parseFloat(product.price);
+let proDetailsData = JSON.parse(localStorage.getItem("details"));
+console.log(proDetailsData.name)
+   
 
-    const productHTML = `
-      <div class="card mb-3">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="${product.image}" class="img-fluid rounded-start" alt="${product.name}">
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">${product.name}</h5>
-              <p class="card-text">$${product.price}</p>
-              <button class="btn btn-danger remove-btn" data-id="${childSnapshot.key}">Remove</button>
+
+let BuyProductContainer = document.querySelector(".BuyProductContainer");
+BuyProductContainer.innerHTML = `
+<div id="cardItem" class="card my-3">
+        <div class="col">
+          <div class="card h-100">
+            <img id="imgCard" src="${proDetailsData.image}" class="card-img-top" alt="Product Image">
+            <div id="textCardContainer" class="card-body text-center">
+              <h5 class="card-title">${proDetailsData.name}</h5>
+              <p class="card-text">${proDetailsData.description}</p>
+              <div class="d-flex justify-content-between">
+                <span class="fw-bold">$${proDetailsData.price}</span>
+                <span class="text-warning">&#9733;${proDetailsData.rating}</span>
+              </div>
+              <div class="justify-content-around d-flex align-items-center">
+                <button id="detailsButton" class="m-1 btn btn-pink" style="background-color: #f8d7da; color: #000;"><a style="text-decoration: none; color:black" href="productDetails.html">More Details</a></button>
+                <i id="favoriteButton" class="fs-4 fa-regular fa-heart"></i>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    `;
+`;
 
-    cartContainer.innerHTML += productHTML;
-  });
 
-  // Update total price
-  document.querySelector(".total-price").textContent = `$${totalPrice.toFixed(
-    2
-  )}`;
 
-  // Add event listeners for removing items
-  document.querySelectorAll(".remove-btn").forEach((btn) => {
-    btn.addEventListener("click", function () {
-      removeItem(this.getAttribute("data-id"));
-    });
-  });
-}
 
-// Fetch products from Firebase and display
-onValue(productsRef, (snapshot) => {
-  if (snapshot.exists()) {
-    displayCartItems(snapshot);
-  } else {
-    document.getElementById("cart-items").innerHTML =
-      "<p>No products in the cart.</p>";
-  }
-});
 
-// Function to remove an item from Firebase
-function removeItem(productId) {
-  const productRef = ref(db, `products/${productId}`);
-  remove(productRef).then(() => {
-    alert("Item removed from cart.");
-  });
-}
+
+
+
+
+
+
+
+
+
+
 
 document
   .getElementById("paymentForm")

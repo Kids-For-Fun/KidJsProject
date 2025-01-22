@@ -82,21 +82,9 @@ if (proDetailsData) {
   // تحديث الصورة الرئيسية
   document.getElementById("mainImage").src = proDetailsData.image;
 
-  // تحديث الصور المصغرة
-  const smallImages = document.querySelectorAll("#small_img .thumbnail");
-  if (proDetailsData.thumbnails && proDetailsData.thumbnails.length === smallImages.length) {
-    proDetailsData.thumbnails.forEach((thumbnail, index) => {
-      smallImages[index].src = thumbnail;
-    });
-  }
-
-  // تحديث اسم المنتج
-  // document.querySelector(".gift-info h1").textContent = proDetailsData.name;
-
   // تحديث التقييم
   const ratingElement = document.querySelector(".rating span:nth-child(1)");
   ratingElement.textContent = `⭐ ${proDetailsData.rating}`;
-
 
   // تحديث السعر
   document.querySelector(".price").textContent = `$${proDetailsData.price}`;
@@ -126,8 +114,12 @@ function writeReviewData(name, rating, reviewText, imageUrl) {
     console.error('Error saving review data:', error);
   });
 }
+
+
 // Function to display reviews as cards
 function displayReview(review) {
+ 
+
   const reviewsContainer = document.getElementById('reviewsContainer');
   const reviewCard = document.createElement('div');
   reviewCard.classList.add('review-card');
@@ -149,8 +141,9 @@ function displayReview(review) {
 
 
 // Event listener for form submission
-document.getElementById('reviewForm').addEventListener('submit', function (event) {
-  event.preventDefault();
+document.getElementById("reviewForm").addEventListener("submit", function (event) {
+  event.preventDefault(); // منع السلوك الافتراضي (مثل إعادة تحميل الصفحة)
+
 
   const name = document.getElementById('productName').value;
   const rating = document.querySelector(".output");
@@ -199,3 +192,6 @@ document.addEventListener('DOMContentLoaded', function () {
 let username = localStorage.getItem("username");
 document.getElementById("nav-username").textContent = username;
 document.getElementById("nav-username").style.margin = "10px";
+
+
+console.log(cart)

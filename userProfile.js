@@ -21,8 +21,23 @@ import {
   updateEmail,
   updatePassword,
   reauthenticateWithCredential,
-  EmailAuthProvider, // أضف هذا السطر لاستيراد EmailAuthProvider
+  EmailAuthProvider, 
 } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+
+import {
+  getDatabase,
+  ref,
+  get,
+  set,
+} from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+
+import {
+  getStorage,
+  ref as storageRef,
+  uploadBytes,
+  getDownloadURL,
+} from "https://www.gstatic.com/firebasejs/11.2.0/firebase-storage.js"; 
 
 const firebaseConfig = {
   apiKey: "AIzaSyAgyWGXCAIR6NiKfkzkWZbBeOMPRDNwMg4",
@@ -35,12 +50,13 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getDatabase(app);
+const storage = getStorage();
 
 
 
 // local seorage ============================================name==========
 const userName = localStorage.getItem("username");
-
 // التحقق إذا كان هناك قيمة في localStorage
 if (userName) {
   document.getElementById("showName").textContent = userName;
@@ -59,22 +75,10 @@ const editPasswordForm = document.getElementById('edit-box-password');
 
 
 
-
-// ================= for editing ============
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    console.log("User is signed in:", user);
-  } else {
-    console.log("No user is signed in.");
-  }
-});
-
-
-
 // l==================================name===================================
 
 document.addEventListener("DOMContentLoaded", () => {
-  const userName = localStorage.getItem("username");
+  
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
@@ -144,15 +148,6 @@ edit_passwordBtn.addEventListener('click', () => {
 });
 
 
-
-
-
-
-
-
-
-
-
 // إضافة الكود الجديد (تحديث كلمة المرور) بعد هذه الأحداث لتجنب التعارض
 
 document.querySelector(".edit_password_btn").addEventListener("click", async (e) => {
@@ -198,85 +193,34 @@ document.querySelector(".edit_password_btn").addEventListener("click", async (e)
   }
 });
 
-import { getFirestore, doc, updateDoc } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js";
-
-const db = getFirestore(app);
-
-const updateUserInFirestore = async (uid, newName) => {
-  try {
-    const userRef = doc(db, "users", uid);
-    await updateDoc(userRef, { name: newName });
-    console.log("User name updated in Firestore.");
-  } catch (error) {
-    console.error("Error updating Firestore:", error);
-  }
-};
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Get DOM elements
 const profileImage = document.getElementById("profileImageInReviews");
-const uploadInput = document.getElementById("uploadProfilePhoto");
 const changeProfileImageBtn = document.getElementById("changeProfileImageBtn");
+const uploadImageInput = document.getElementById("uploadImageInput");
 
-// Open file input dialog on button click
 changeProfileImageBtn.addEventListener("click", () => {
-  uploadInput.click();
-  console.log("g")
+  uploadImageInput.click();
 });
 
-// Handle file selection and update profile image
-uploadInput.addEventListener("change", async (event) => {
+uploadImageInput.addEventListener("change", async (event) => {
   const file = event.target.files[0];
-  if (file) {
-    const user = auth.currentUser;
-    if (!user) {
-      alert("No user is signed in.");
-      return;
-    }
 
-    const filePath = `profileImages/${user.uid}`;
-    const fileRef = storageRef(storage, filePath);
+  if (!file) {
+    alert("Please select an image to upload.");
+    return;
+  }
 
-    try {
-      // Upload the file to Firebase Storage
-      await uploadBytes(fileRef, file);
-
-      // Get the file's URL
-      const photoURL = await getDownloadURL(fileRef);
-
-      // Update profile image in Realtime Database
-      await set(ref(db, `users/${user.uid}/profileImage`), photoURL);
-
-      // Update profile image on the page
-      profileImage.src = photoURL;
-
-      alert("Profile image updated successfully!");
-    } catch (error) {
-      console.error("Error updating profile image:", error);
-      alert("Failed to update profile image.");
-    }
+  try {
+    const storageReference = ref(storage, `profile_images/${file.name}`);
+    const snapshot = await uploadBytes(storageReference, file);
+    const imageUrl = await getDownloadURL(snapshot.ref);
+  
+    profileImage.src = imageUrl;
+    alert("Profile image updated successfully!");
+  } catch (error) {
+    console.error("Error uploading image:", error);
+    alert(`Failed to upload image: ${error.message}`);
   }
 });

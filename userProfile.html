@@ -58,10 +58,14 @@
                         </div>
 
                         <!-- User Icon -->
+                       
                         <a style="color: black;" href="userProfile.html">
                             <i class="fa-regular fa-user fs-5"></i>
                         </a>
-                        <span id="nav-username"></span>
+                        
+                           
+                          
+                          <span id="nav-username"></span>
                         <span class="fav-icon">
                             <a href="wishList.html"><i class="fa-regular fa-heart"></i></a>
                         </span>
@@ -82,14 +86,17 @@
 
 <div class="profile-container">
     <div class="profile-header">
-        <div class="profile-avatar">
-          <!-- الصورة الافتراضية -->
-          <img id="profileImageInReviews" src="https://i.pinimg.com/736x/26/cf/47/26cf4792065d7b5da949c48a002d4f49.jpg" alt="Avatar" style="width: 100px; height: 100px; border-radius: 50%;">
-          <!-- إدخال مخفي لتحميل الصورة -->
-          <input type="file" id="uploadProfilePhoto" accept="image/*" style="display: none;">
-          <!-- الزر لتغيير الصورة -->
-          <button id="changeProfileImageBtn">Change Profile Image</button>
-        </div>
+       
+        <div>
+            <img
+              id="profileImageInReviews"
+              src="https://imgcdn.stablediffusionweb.com/2024/3/16/ce57b909-c85c-4cb9-936c-2eca90f4b0f9.jpg"
+              alt="Profile Image"
+              style="width: 100px; height: 100px; border-radius: 50%;"
+            />
+            <button id="changeProfileImageBtn">Change Profile Image</button>
+            <input type="file" id="uploadImageInput" accept="image/*" style="display: none;" />
+          </div>
         <h1 class="welcome-message">Hello, <span id="showTitel">Ali Mohammad</span></h1>
       </div>
 
@@ -122,7 +129,6 @@
     <div class="edit-forms">
      
         <div id="edit-box-email" class="edit-box" style="display: none;" disabled>
-     
             <form id="edit-email-form">
             </form>
         </div>
